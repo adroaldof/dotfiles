@@ -1,4 +1,4 @@
-###############################################################################
+##############################################################################
 # Generate ssh keys
 ###############################################################################
 # ssh-keygen -t rsa -b 4096 -C "your@email.com"
@@ -11,37 +11,37 @@ echo ""
 # Make all updates
 ###############################################################################
 echo "Updating system"
-sudo apt-get update -qqy
-sudo apt-get upgrade -qqy
-sudo apt-get dist-upgrade -qqy
+sudo apt-get update -y
+sudo apt-get upgrade -y
+sudo apt-get dist-upgrade -y
 
 
 ###############################################################################
 # Install Essential Packages
 ###############################################################################
 echo "Installing essentials packages"
-sudo apt-get install build-essential libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext unzip -qqy
+sudo apt-get install build-essential libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext unzip -y
 
 
 ###############################################################################
 # Install Git
 ###############################################################################
 echo "Installing Git"
-sudo apt-get install git-core -qqy
+sudo apt-get install git-core -y
 
 
 ###############################################################################
 # Install Tweak Tools
 ###############################################################################
 echo "Installing Tweak Tools"
-sudo apt-get install gnome-tweak-tool -qqy
+sudo apt-get install gnome-tweak-tool -y
 
 
 ###############################################################################
 # Install Curl
 ###############################################################################
 echo "Installing Curl"
-sudo apt install curl -qqy
+sudo apt install curl -y
 
 
 ###############################################################################
@@ -49,13 +49,13 @@ sudo apt install curl -qqy
 ###############################################################################
 echo "Installing Vim and its goods"
 # install vim
-sudo apt-get install vim -qqy
+sudo apt-get install vim -y
 
 # Install vim copy to clipboard
-sudo apt-get install vim-gtk -qqy
+sudo apt-get install vim-gtk -y
 
 # Install silver search
-sudo apt-get install silversearcher-ag -qqy
+sudo apt-get install silversearcher-ag -y
 
 
 ###############################################################################
@@ -88,8 +88,8 @@ code --install-extension zhutian.swig
 # Install Atom
 ###############################################################################
 sudo add-apt-repository ppa:webupd8team/atom
-sudo apt-get update -qqy
-sudo apt-get install atom -qqy
+sudo apt-get update -y
+sudo apt-get install atom -y
 
 # Install some Atom Packages
 apm install atom-beautify
@@ -135,15 +135,15 @@ echo "alias pbpaste='xclip -selection clipboard -o'"
 # -----
 # alias pbcopy='xclip -selection clipboard'
 # alias pbpaste='xclip -selection clipboard -o'
-sudo apt-get install xclip -qqy
+sudo apt-get install xclip -y
 
 
 ###############################################################################
 # Install NVM
 ###############################################################################
 echo "Installing NVM"
-sudo apt-get install nodejs -qqy
-sudo apt-get install npm -qqy
+sudo apt-get install nodejs -y
+sudo apt-get install npm -y
 curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh -o install_nvm.sh
 source ~/.profile
 nvm install stable
@@ -159,8 +159,9 @@ sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58
 sudo apt-add-repository 'deb https://apt.dockerproject.org/repo ubuntu-xenial main'
 sudo apt-get update
 apt-cache policy docker-engine
-sudo apt-get install -qqy docker-engine
+sudo apt-get install -y docker-engine
 sudo usermod -aG docker $(whoami)
+sudo chmod -aG /usr/bin/docker
 
 echo "Installing Docker Compose"
 # Install docker-compose
@@ -173,7 +174,7 @@ chmod +x /usr/local/bin/docker-compose
 # Install ZSH and oh-my-zsh
 ###############################################################################
 echo "Installing ZSH and Oh-my-zsh"
-sudo apt-get install zsh -qqy
+sudo apt-get install zsh -y
 sh -c "$(wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh)"
 chsh -s `which zsh`
 
@@ -189,7 +190,7 @@ echo "Installing Tmux"
 # alias tnew="tmux new -s"
 # alias tls="tmux ls"
 # alias tkill="tmux kill-session -t"
-sudo apt-get install tmux -qqy
+sudo apt-get install tmux -y
 
 
 ###############################################################################
@@ -199,19 +200,19 @@ echo "Installing Google Chrome"
 # Install Google Chrome Browser
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
-sudo apt-get update -qqy
-sudo apt-get install google-chrome-stable -qqy
+sudo apt-get update -y
+sudo apt-get install google-chrome-stable -y
 
 echo "Installing Google Chromium"
 # Install Chromium Browser
-sudo apt-get install chromium-browser -qqy
+sudo apt-get install chromium-browser -y
 
 echo "Installing Opera"
 # Install Opera browser
 sudo sh -c 'echo "deb http://deb.opera.com/opera/ stable non-free" >> /etc/apt/sources.list.d/opera.list'
 sudo sh -c 'wget -O - http://deb.opera.com/archive.key | apt-key add -'
-sudo apt-get update -qqy
-sudo apt-get install opera -qqy
+sudo apt-get update -y
+sudo apt-get install opera -y
 
 
 ###############################################################################
