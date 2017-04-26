@@ -1,8 +1,14 @@
-###############################################################################
-# Change Some Networks Configurations
-###############################################################################
+echo "###############################################################################"
+echo "# We need sudo do start"
+echo "###############################################################################"
+sudo echo "I need your permission please"
+sudo echo "Thanks. I'll begin the install now"
+
+echo "###############################################################################"
+echo "# Change Some Networks Configurations"
+echo "###############################################################################"
 # Add network configurations
-echo '\nauto lo:0' | sudo tee --append /etc/network/interfaces
+echo 'auto lo:0' | sudo tee --append /etc/network/interfaces
 echo 'iface lo:0 inet static' | sudo tee --append /etc/network/interfaces
 echo 'address 10.10.10.10' | sudo tee --append /etc/network/interfaces
 echo 'netmask 255.0.0.0' | sudo tee --append /etc/network/interfaces
@@ -11,11 +17,11 @@ echo 'netmask 255.0.0.0' | sudo tee --append /etc/network/interfaces
 sudo service networking restart
 
 
-###############################################################################
-# Install docker authentication file
-###############################################################################
+echo "###############################################################################"
+echo "# Install docker authentication file"
+echo "###############################################################################"
 sudo mkdir ~/.docker
-sudo tee ~/.docker/configASDF.json > /dev/null << EOF
+sudo tee ~/.docker/config.json > /dev/null << EOF
 {
     "auths": {
         "https://docker.bravi.com.br/v1/": {
@@ -32,10 +38,10 @@ sudo tee ~/.docker/configASDF.json > /dev/null << EOF
 EOF
 
 
-###############################################################################
-# Install Bravi Goods
-###############################################################################
-sudo tee ~/aliasASDF.sh > /dev/null << EOF
+echo "###############################################################################"
+echo "# Install Bravi Goods"
+echo "###############################################################################"
+sudo tee ~/alias.sh > /dev/null << EOF
 zshsrc () {
     source ~/alias.sh
 }
