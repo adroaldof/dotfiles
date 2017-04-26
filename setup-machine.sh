@@ -73,7 +73,7 @@ code --install-extension donjayamanne.githistory
 code --install-extension eg2.tslint
 code --install-extension ms-vscode.PowerShell
 code --install-extension ms-vscode.csharp
-code --install-extension seanmcbreen.Spell
+code --install-extension code-spell-checker
 code --install-extension stevencl.addDocComments
 code --install-extension vscode-icons
 code --install-extension wmaurer.change-case
