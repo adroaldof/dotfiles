@@ -1,7 +1,7 @@
 echo "###############################################################################"
 echo "# Clone Dotfiles Repo"
 echo "###############################################################################"
-git clone git@github.com:adroaldof/dotfiles.sh ~/dotfiles
+git clone https://github.com/adroaldof/dotfiles.git ~/dotfiles
 
 
 echo "###############################################################################"
