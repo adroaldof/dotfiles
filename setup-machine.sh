@@ -1,9 +1,16 @@
 echo "###############################################################################"
+echo "# We need sudo do start"
+echo "###############################################################################"
+sudo echo "I need your permission please"
+sudo echo "Thanks. I'll begin the install now"
+
+
+echo "###############################################################################"
 echo "# Generate ssh keys"
 echo "###############################################################################"
 echo "# Please enter your email:"
 read email
-ssh-keygen -t rsa -N -b 4096 -C $email
+ssh-keygen -t rsa -b 4096 -C "$email" -f "/home/$USER/.ssh/id_rsa" -N ""
 chmod 600 ~/.ssh/*
 
 
@@ -83,7 +90,7 @@ code --install-extension zhutian.swig
 echo "###############################################################################"
 echo "# Install Atom"
 echo "###############################################################################"
-sudo add-apt-repository ppa:webupd8team/atom
+sudo add-apt-repository ppa:webupd8team/atom -y
 sudo apt-get update -y
 sudo apt-get install atom -y
 
@@ -123,9 +130,9 @@ apm install webbox-color
 echo "###############################################################################"
 echo "# Install xClip"
 echo "###############################################################################"
-echo "Add the follow aliases to your config file"
-echo "alias pbcopy='xclip -selection clipboard'"
-echo "alias pbpaste='xclip -selection clipboard -o'"
+echo "# Add the follow aliases to your config file"
+echo "# alias pbcopy='xclip -selection clipboard'"
+echo "# alias pbpaste='xclip -selection clipboard -o'"
 # Aliases
 # -----
 # alias pbcopy='xclip -selection clipboard'
@@ -138,7 +145,10 @@ echo "# Install NVM"
 echo "###############################################################################"
 sudo apt-get install nodejs -y
 sudo apt-get install npm -y
-curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh -o install_nvm.sh
+sudo curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh -o install_nvm.sh
+chmod +x install_nvm.sh
+./install_nvm.sh
+rm ./install_nvm.sh
 source ~/.profile
 nvm install stable
 npm i -g git-x
@@ -150,13 +160,16 @@ echo "##########################################################################
 # Install docker
 sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
 sudo apt-add-repository 'deb https://apt.dockerproject.org/repo ubuntu-xenial main'
-sudo apt-get update
-apt-cache policy docker-engine
+sudo apt-get update -y
+sudo apt-cache policy docker-engine
 sudo apt-get install -y docker-engine
 sudo usermod -aG docker $(whoami)
 sudo chmod -aG /usr/bin/docker
 
-echo "Installing Docker Compose"
+
+echo "###############################################################################"
+echo "# Installing Docker Compose"
+echo "###############################################################################"
 # Install docker-compose
 sudo touch /usr/local/bin/docker-compose && sudo chown $USER /usr/local/bin/docker-compose
 curl -L https://github.com/docker/compose/releases/download/1.6.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
@@ -168,7 +181,7 @@ echo "# Install ZSH and oh-my-zsh"
 echo "###############################################################################"
 sudo apt-get install zsh -y
 sh -c "$(wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh)"
-chsh -s `which zsh`
+sudo chsh -s `which zsh`
 
 
 echo "###############################################################################"
@@ -185,21 +198,23 @@ sudo apt-get install tmux -y
 
 
 echo "###############################################################################"
-echo "# Install Browsers"
+echo "# Installing Google Chrome Browser"
 echo "###############################################################################"
-echo "# Installing Google Chrome"
-# Install Google Chrome Browser
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 sudo apt-get update -y
 sudo apt-get install google-chrome-stable -y
 
-echo "# Installing Google Chromium"
-# Install Chromium Browser
+
+echo "###############################################################################"
+echo "# Installing Google Chromium Browser"
+echo "###############################################################################"
 sudo apt-get install chromium-browser -y
 
-echo "# Installing Opera"
-# Install Opera browser
+
+echo "###############################################################################"
+echo "# Installing Opera Browser"
+echo "###############################################################################"
 sudo sh -c 'echo "deb http://deb.opera.com/opera/ stable non-free" >> /etc/apt/sources.list.d/opera.list'
 sudo sh -c 'wget -O - http://deb.opera.com/archive.key | apt-key add -'
 sudo apt-get update -y
@@ -218,8 +233,8 @@ echo "# Install Spotify"
 echo "###############################################################################"
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886
 echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
-sudo apt-get update
-sudo apt-get install spotify-client
+sudo apt-get update -y
+sudo apt-get install spotify-client -y
 
 
 echo "###############################################################################"
@@ -235,11 +250,11 @@ echo "##########################################################################
 sudo apt-get clean
 
 # Reduce image size
-rm -rf /var/lib/apt/lists/*
+sudo rm -rf /var/lib/apt/lists/*
 
 # Generate UTF-8 locale
-locale-gen en_US en_US.UTF-8
+sudo locale-gen en_US en_US.UTF-8
 
 # Reconfigure locales
-dpkg-reconfigure locales
+sudo dpkg-reconfigure locales
 
