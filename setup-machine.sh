@@ -145,10 +145,7 @@ echo "# Install NVM"
 echo "###############################################################################"
 sudo apt-get install nodejs -y
 sudo apt-get install npm -y
-sudo curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh -o install_nvm.sh
-chmod +x install_nvm.sh
-./install_nvm.sh
-rm ./install_nvm.sh
+sudo curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash -s arg1 arg2
 source ~/.profile
 nvm install stable
 npm i -g git-x
