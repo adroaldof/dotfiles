@@ -15,6 +15,17 @@ chmod 600 ~/.ssh/*
 
 
 echo "###############################################################################"
+echo "# Install ZSH and oh-my-zsh"
+echo "###############################################################################"
+rm -rf ~/.oh-my-zsh 2> /dev/null
+rm -rf ~/.zsh* 2> /dev/null
+rm -rf ~/.zcomp* 2> /dev/null
+sudo apt-get install zsh -y
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+chsh -s `which zsh`
+
+
+echo "###############################################################################"
 echo "# Make all system updates"
 echo "###############################################################################"
 sudo apt-get update -y
@@ -25,25 +36,19 @@ sudo apt-get dist-upgrade -y
 echo "###############################################################################"
 echo "# Install Essential Packages"
 echo "###############################################################################"
-sudo apt-get install build-essential libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext unzip -y
+sudo apt-get install build-essential libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext unzip curl -y
 
 
 echo "###############################################################################"
 echo "# Install Git"
 echo "###############################################################################"
-sudo apt-get install git-core -y
+sudo apt-get install git -y
 
 
-echo "###############################################################################"
-echo "# Install Tweak Tools"
-echo "###############################################################################"
-sudo apt-get install gnome-tweak-tool -y
-
-
-echo "###############################################################################"
-echo "# Install Curl"
-echo "###############################################################################"
-sudo apt install curl -y
+# echo "###############################################################################"
+# echo "# Install Tweak Tools"
+# echo "###############################################################################"
+# sudo apt-get install gnome-tweak-tool -y
 
 
 echo "###############################################################################"
@@ -143,18 +148,13 @@ sudo apt-get install xclip -y
 echo "###############################################################################"
 echo "# Install NVM"
 echo "###############################################################################"
-sudo apt-get install nodejs -y
-sudo apt-get install npm -y
-sudo curl -sL https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash -s arg1 arg2
-source ~/.profile
-nvm install stable
-npm i -g git-x
+wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
 
 
 echo "###############################################################################"
 echo "# Install Docker"
 echo "###############################################################################"
-# Install docker
+# According Digital Ocean
 sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
 sudo apt-add-repository 'deb https://apt.dockerproject.org/repo ubuntu-xenial main'
 sudo apt-get update -y
@@ -162,6 +162,18 @@ sudo apt-cache policy docker-engine
 sudo apt-get install -y docker-engine
 sudo usermod -aG docker $(whoami)
 sudo chmod -aG /usr/bin/docker
+
+# According Docker Docs
+# sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual
+# sudo apt-get install apt-transport-https ca-certificates software-properties-common
+# curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+# sudo apt-key fingerprint 0EBFCD88
+# sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+# sudo apt-get update
+# sudo apt-get install docker-ce
+# sudo groupadd docker
+# sudo usermod -aG docker $USER
+# sudo systemctl enable docker
 
 
 echo "###############################################################################"
@@ -172,13 +184,10 @@ sudo touch /usr/local/bin/docker-compose && sudo chown $USER /usr/local/bin/dock
 curl -L https://github.com/docker/compose/releases/download/1.6.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 
-
-echo "###############################################################################"
-echo "# Install ZSH and oh-my-zsh"
-echo "###############################################################################"
-sudo apt-get install zsh -y
-sh -c "$(wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh)"
-sudo chsh -s `which zsh`
+# According Digital Ocean
+# sudo touch /usr/local/bin/docker-compose && sudo chown $USER /usr/local/bin/docker-compose
+# sudo curl -o /usr/local/bin/docker-compose -L "https://github.com/docker/compose/releases/download/1.11.2/docker-compose-$(uname -s)-$(uname -m)"
+# sudo chmod +x /usr/local/bin/docker-compose
 
 
 echo "###############################################################################"
@@ -215,7 +224,13 @@ echo "##########################################################################
 sudo sh -c 'echo "deb http://deb.opera.com/opera/ stable non-free" >> /etc/apt/sources.list.d/opera.list'
 sudo sh -c 'wget -O - http://deb.opera.com/archive.key | apt-key add -'
 sudo apt-get update -y
-sudo apt-get install opera -y
+sudo apt-get install opera-stable -y
+
+
+echo "###############################################################################"
+echo "# Installing Opera Browser"
+echo "###############################################################################"
+sudo apt-get install opera-developer -y
 
 
 echo "###############################################################################"
@@ -235,16 +250,10 @@ sudo apt-get install spotify-client -y
 
 
 echo "###############################################################################"
-echo "# Install Slack"
-echo "###############################################################################"
-https://downloads.slack-edge.com/linux_releases/slack-desktop-2.4.2-amd64.deb > /tmp/slack.deb
-sudo dpkg -i /tmp/slack.deb && sudo apt install -f
-
-echo "###############################################################################"
 echo "# Post Install Setups"
 echo "###############################################################################"
 # Clean packages
-sudo apt-get clean
+sudo apt-get clean -y
 
 # Reduce image size
 sudo rm -rf /var/lib/apt/lists/*
@@ -254,4 +263,17 @@ sudo locale-gen en_US en_US.UTF-8
 
 # Reconfigure locales
 sudo dpkg-reconfigure locales
+
+echo "###############################################################################"
+echo "# "
+echo "# Intallation Finish"
+echo "# "
+echo "# Some useful apps that could be manually installed"
+echo "# - Slack (https://slack.com/downloads/linux)"
+echo "# - Git Kraken (https://www.gitkraken.com/)"
+echo "# "
+echo "# And some for fun"
+echo "# - MusixMatch (https://about.musixmatch.com/)"
+echo "# "
+echo "###############################################################################"
 
