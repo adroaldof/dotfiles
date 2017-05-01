@@ -15,6 +15,12 @@ chmod 600 ~/.ssh/*
 
 
 echo "###############################################################################"
+echo "# Install Essential Packages"
+echo "###############################################################################"
+sudo apt-get install build-essential libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext unzip curl -y
+
+
+echo "###############################################################################"
 echo "# Install ZSH and oh-my-zsh"
 echo "###############################################################################"
 rm -rf ~/.oh-my-zsh 2> /dev/null
@@ -23,6 +29,7 @@ rm -rf ~/.zcomp* 2> /dev/null
 sudo apt-get install zsh -y
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 chsh -s `which zsh`
+zsh
 
 
 echo "###############################################################################"
@@ -31,12 +38,6 @@ echo "##########################################################################
 sudo apt-get update -y
 sudo apt-get upgrade -y
 sudo apt-get dist-upgrade -y
-
-
-echo "###############################################################################"
-echo "# Install Essential Packages"
-echo "###############################################################################"
-sudo apt-get install build-essential libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext unzip curl -y
 
 
 echo "###############################################################################"
