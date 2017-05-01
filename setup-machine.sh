@@ -43,7 +43,6 @@ rm -rf ~/.zcomp* 2> /dev/null
 sudo apt-get install zsh -y
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 chsh -s `which zsh`
-zsh
 
 
 echo "###############################################################################"
