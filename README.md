@@ -21,6 +21,11 @@ This repo is aimed to make initial setup to a new Ubuntu Machine
 1. Install SQLElectrom
 1. Install Spotify
 
+## Execute the script
+```bash
+sh -c "$(wget://raw.githubusercontent.com/adroaldof/dotfiles/master/setup-machine.sh -O -)"
+```
+
 ## Setup Dotfiles
 
 It will clone the repo and symlink all the following files
