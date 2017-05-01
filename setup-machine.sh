@@ -165,15 +165,8 @@ sudo chmod g+w /usr/local/bin/npm
 echo "###############################################################################"
 echo "# Install Docker"
 echo "###############################################################################"
-# According Digital Ocean
-sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
-sudo apt-add-repository 'deb https://apt.dockerproject.org/repo ubuntu-xenial main'
-sudo apt-get update -y
-sudo apt-cache policy docker-engine
-sudo apt-get install -y docker-engine
-sudo usermod -aG docker $(whoami)
-sudo chmod -aG /usr/bin/docker
-
+wget -qO- https://get.docker.com/ | sh
+sudo usermod -aG docker $USER
 # According Docker Docs
 # sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual
 # sudo apt-get install apt-transport-https ca-certificates software-properties-common
@@ -186,19 +179,23 @@ sudo chmod -aG /usr/bin/docker
 # sudo usermod -aG docker $USER
 # sudo systemctl enable docker
 
+# According Digital Ocean
+# sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+# sudo apt-add-repository 'deb https://apt.dockerproject.org/repo ubuntu-xenial main'
+# sudo apt-get update -y
+# sudo apt-cache policy docker-engine
+# sudo apt-get install -y docker-engine
+# sudo usermod -aG docker $(whoami)
+# sudo chmod -aG /usr/bin/docker
+
 
 echo "###############################################################################"
 echo "# Installing Docker Compose"
 echo "###############################################################################"
-# Install docker-compose
-sudo touch /usr/local/bin/docker-compose && sudo chown $USER /usr/local/bin/docker-compose
-curl -L https://github.com/docker/compose/releases/download/1.6.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
-chmod +x /usr/local/bin/docker-compose
-
 # According Digital Ocean
-# sudo touch /usr/local/bin/docker-compose && sudo chown $USER /usr/local/bin/docker-compose
-# sudo curl -o /usr/local/bin/docker-compose -L "https://github.com/docker/compose/releases/download/1.11.2/docker-compose-$(uname -s)-$(uname -m)"
-# sudo chmod +x /usr/local/bin/docker-compose
+sudo touch /usr/local/bin/docker-compose && sudo chown $USER /usr/local/bin/docker-compose
+sudo curl -o /usr/local/bin/docker-compose -L "https://github.com/docker/compose/releases/download/1.12.0/docker-compose-$(uname -s)-$(uname -m)"
+sudo chmod +x /usr/local/bin/docker-compose
 
 
 echo "###############################################################################"
