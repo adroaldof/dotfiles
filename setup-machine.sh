@@ -243,9 +243,8 @@ sudo apt-get install opera-developer -y
 echo "###############################################################################"
 echo "# Install SQLEletrom"
 echo "###############################################################################"
-local x=$(curl -s https://github.com/sqlectron/sqlectron-gui/releases | grep '/sqlectron/sqlectron-gui/releases/tag/' | head -n 1 | awk -F "[><]" '{print $3}' | head -n 2 | sed 's,v,,g')
-echo "Installing $x..."
-curl -L "https://github.com/sqlectron/sqlectron-gui/releases/download/v$x/Sqlectron_${x}_amd64.deb" > /tmp/sqlectron.deb
+sqlectronversion=$(curl -s https://github.com/sqlectron/sqlectron-gui/releases | grep '/sqlectron/sqlectron-gui/releases/tag/' | head -n 1 | awk -F "[><]" '{print $3}' | head -n 2 | sed 's,v,,g')
+curl -L "https://github.com/sqlectron/sqlectron-gui/releases/download/v$sqlectronversion/Sqlectron_${sqlectronversion}_amd64.deb" > /tmp/sqlectron.deb
 sudo dpkg -i /tmp/sqlectron.deb && sudo apt install -f
 
 
