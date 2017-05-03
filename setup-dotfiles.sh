@@ -29,7 +29,7 @@ echo "##########################################################################
 echo "# Install Fonts"
 echo "###############################################################################"
 rm -rf ~/.oh-my-zsh/themes/adro.zsh-theme > /dev/null 2>&1
-ln -s ~/dotfiles/adro.theme ~/.oh-my-zsh/themes/adro.zsh-theme
+ln -s ~/dotfiles/adro.zsh-theme ~/.oh-my-zsh/themes/adro.zsh-theme
 
 
 echo "###############################################################################"
