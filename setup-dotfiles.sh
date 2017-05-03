@@ -26,7 +26,7 @@ ln -s ~/dotfiles/zshrc ~/.zshrc
 
 
 echo "###############################################################################"
-echo "# Install Fonts"
+echo "# Install on-my-zsh theme"
 echo "###############################################################################"
 rm -rf ~/.oh-my-zsh/themes/adro.zsh-theme > /dev/null 2>&1
 ln -s ~/dotfiles/adro.zsh-theme ~/.oh-my-zsh/themes/adro.zsh-theme
