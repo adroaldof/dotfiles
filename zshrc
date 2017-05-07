@@ -116,8 +116,3 @@ alias tkill="tmux kill-session -t"
 alias pbcopy="xclip -selection clipboard"
 alias bpaste="xclip -selection clipboard -o"
 
-
-###############################################################################
-# Source Bravi Aliases
-###############################################################################
-# source ~/alias.sh

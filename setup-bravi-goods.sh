@@ -59,10 +59,16 @@ update-alias () {
 }
 
 for f in ~/aliases/*; do
-    source $f;
+    source "$f";
 done
 
 EOF
+
+
+echo "###############################################################################"
+echo "# Source Bravi Aliases"
+echo "###############################################################################" 
+echo "source ~/alias.sh" >> $HOME/.zshrc
 
 mkdir ~/aliases
 source ~/alias.sh
