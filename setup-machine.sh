@@ -5,13 +5,13 @@ sudo echo "I need your permission please"
 sudo echo "Thanks. I'll begin the install now"
 
 
-echo "###############################################################################"
-echo "# Generate ssh keys"
-echo "###############################################################################"
-echo "# Please enter your email:"
-read email
-ssh-keygen -t rsa -b 4096 -C "$email" -f "/home/$USER/.ssh/id_rsa" -N ""
-chmod 600 ~/.ssh/*
+# echo "###############################################################################"
+# echo "# Generate ssh keys"
+# echo "###############################################################################"
+# echo "# Please enter your email:"
+# read email
+# ssh-keygen -t rsa -b 4096 -C "$email" -f "/home/$USER/.ssh/id_rsa" -N ""
+# chmod 600 ~/.ssh/*
 
 
 echo "###############################################################################"
@@ -32,17 +32,6 @@ echo "##########################################################################
 echo "# Install Git"
 echo "###############################################################################"
 sudo apt-get install git -y
-
-
-echo "###############################################################################"
-echo "# Install ZSH and oh-my-zsh"
-echo "###############################################################################"
-rm -rf ~/.oh-my-zsh 2> /dev/null
-rm -rf ~/.zsh* 2> /dev/null
-rm -rf ~/.zcomp* 2> /dev/null
-sudo apt-get install zsh -y
-sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-chsh -s `which zsh`
 
 
 echo "###############################################################################"
@@ -271,6 +260,17 @@ sudo locale-gen en_US en_US.UTF-8
 
 # Reconfigure locales
 sudo dpkg-reconfigure locales
+
+echo "###############################################################################"
+echo "# Install ZSH and oh-my-zsh"
+echo "###############################################################################"
+rm -rf ~/.oh-my-zsh 2> /dev/null
+rm -rf ~/.zsh* 2> /dev/null
+rm -rf ~/.zcomp* 2> /dev/null
+sudo apt-get install zsh -y
+sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+chsh -s `which zsh`
+
 
 echo "###############################################################################"
 echo "# "
