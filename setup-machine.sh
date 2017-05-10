@@ -61,7 +61,6 @@ sudo dpkg -i /tmp/vscode.deb && sudo apt-get install -f
 
 # Install some VSCode Extensions
 code --Install-extension sort-lines
-code --install-extension EditorConfig.EditorConfig
 code --install-extension MattiasPernhult.vscode-todo
 code --install-extension PeterJausovec.vscode-docker
 code --install-extension QassimFarid.ejs-language-support
@@ -75,10 +74,6 @@ code --install-extension eg2.tslint
 code --install-extension ms-vscode.PowerShell
 code --install-extension ms-vscode.csharp
 code --install-extension code-spell-checker
-code --install-extension stevencl.addDocComments
-code --install-extension vscode-icons
-code --install-extension wmaurer.change-case
-code --install-extension zhutian.swig
 
 
 echo "###############################################################################"
