@@ -54,13 +54,15 @@ sudo apt-get install silversearcher-ag -y
 
 
 echo "###############################################################################"
-echo "# Install VSCode"
+echo "# Install VSCode - a898e5792c6179b70770bfb1ae276b9a2fc594c6"
 echo "###############################################################################"
 curl -L https://go.microsoft.com/fwlink/?LinkID=760868 > /tmp/vscode.deb
 sudo dpkg -i /tmp/vscode.deb && sudo apt-get install -f
 
 # Install some VSCode Extensions
-code --Install-extension sort-lines
+code --Install-extension Tyriar.sort-lines
+code --Install-extension donjayamanne.python
+code --Install-extension robertohuertasm.vscode-icons
 code --install-extension MattiasPernhult.vscode-todo
 code --install-extension PeterJausovec.vscode-docker
 code --install-extension QassimFarid.ejs-language-support
@@ -71,9 +73,7 @@ code --install-extension christian-kohler.path-intellisense
 code --install-extension cssho.vscode-svgviewer
 code --install-extension donjayamanne.githistory
 code --install-extension eg2.tslint
-code --install-extension ms-vscode.PowerShell
-code --install-extension ms-vscode.csharp
-code --install-extension code-spell-checker
+code --install-extension streetsidesoftware.code-spell-checker
 
 
 echo "###############################################################################"
