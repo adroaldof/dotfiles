@@ -41,7 +41,7 @@ sudo apt-get install gnome-tweak-tool -y
 
 
 echo "###############################################################################"
-echo "# Install vim and its goods"
+echo "# Install vim and its goods - a898e5792c6179"
 echo "###############################################################################"
 # install vim
 sudo apt-get install vim -y
@@ -54,7 +54,7 @@ sudo apt-get install silversearcher-ag -y
 
 
 echo "###############################################################################"
-echo "# Install VSCode - a898e5792c6179b70770bfb1ae276b9a2fc594c6"
+echo "# Install VSCode - b70770bfb1ae276b9a2fc594c6"
 echo "###############################################################################"
 curl -L https://go.microsoft.com/fwlink/?LinkID=760868 > /tmp/vscode.deb
 sudo dpkg -i /tmp/vscode.deb && sudo apt-get install -f
