@@ -166,7 +166,7 @@ sudo apt-get clean -y
 sudo rm -rf /var/lib/apt/lists/*
 
 # Generate UTF-8 locale
-sudo locale-gen en_US en_US.UTF-8
+sudo locale-gen pt_BR pt_BR.UTF-8 en_US en_US.UTF-8
 
 # Reconfigure locales
 sudo dpkg-reconfigure locales
