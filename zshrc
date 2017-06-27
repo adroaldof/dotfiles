@@ -120,3 +120,10 @@ alias bpaste="xclip -selection clipboard -o"
 # Source Bravi Aliases
 ###############################################################################
 source ~/alias.sh
+
+###############################################################################
+# Additional env paths
+###############################################################################
+export ENVS_PATH="/home/$(whoami)/.zshrc.envs"
+[ -s "$ENVS_PATH" ] && . "$ENVS_PATH" # This loads nvm
+
