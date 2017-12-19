@@ -36,14 +36,23 @@ Bundle "tomtom/tcomment_vim.git"
 " #############################################################################
 Bundle "airblade/vim-gitgutter"
 
+" Speed for accuracy
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
+
 " dark column
 " highlight SignColumn guibg=233
 highlight SignColumn ctermbg=235
+" highlight clear SignColumn
+" highlight GitGutterAdd ctermfg=green guifg=darkgreen
+" highlight GitGutterChange ctermfg=yellow guifg=darkyellow
+" highlight GitGutterDelete ctermfg=red guifg=darkred
+" highlight GitGutterChangeDelete ctermfg=yellow guifg=darkyellow
 
 " #############################################################################
-" # Force to repeting 
+" # Force to repeting
 " #############################################################################
-" Bundle "takac/vim-hardtime"
+Bundle "takac/vim-hardtime"
 
 let g:hardtime_default_on = 3
 let g:hardtime_showmsg = 3

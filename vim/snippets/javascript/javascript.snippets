@@ -48,19 +48,19 @@ snippet ife
 # Ternary if
 ################################################################################
 snippet ift
-	${1:/* condition */} ? ${2:/* if true */} : ${0:/* if false */}
+	${0:/* condition */} ? ${1:/* if true */} : ${2:/* if false */};${0}
 ################################################################################
 # For loop statement
 ################################################################################
 snippet for
-	for (var ${1:i}; $i < ${2:arrayVariable}; $1++) {
+	for (let ${1:i}; $i < ${2:arrayVariable}; $1++) {
 		${0}
 	}
 ################################################################################
 # For in
 ################################################################################
 snippet forin
-	for (var ${1:prop} in ${2:object}) {
+	for (let ${1:prop} in ${2:object}) {
 		${0}
 	}
 ################################################################################
@@ -101,7 +101,7 @@ snippet case
 ################################################################################
 snippet try
 	try {
-		${1}
+		${1:/* Commands */}
 	} catch (${2:e}) {
 		${0:/* Error handler */}
 	}
@@ -110,7 +110,7 @@ snippet try
 ################################################################################
 snippet tryf
 	try {
-		${1}
+		${1:/* Commands */}
 	} catch (${2:e}) {
 		${0:/* Error handler */}
 	} finally {
@@ -124,9 +124,9 @@ snippet terr
 ################################################################################
 # Dictionary (object)
 ################################################################################
-snippet dict
+snippet obj
 	{
-		${1:key}: ${0:value}
+		${1:key}: ${0:value},
 	}
 ################################################################################
 # Docstring
@@ -163,13 +163,13 @@ snippet cll
 	console.log('${0:Log}');
 snippet cl
 	console.log('${1:varName}', $1);
-snippet lo
-	logger.log('${1:varName}', $1);
 snippet cls
 	console.log('${1:varName}', JSON.stringify($1, null, 2));
-snippet ct
+snippet clt
 	console.time(${0:label});
-snippet c-
+snippet cl-
 	console.log('********************', ' ${1:Message} ', '********************');
-snippet c8
+snippet cl8
 	console.log('****************************************');
+snippet then
+	.then(${1:param} => { console.log('$1', $1); return $1; })

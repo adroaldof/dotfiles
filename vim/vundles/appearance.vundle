@@ -1,10 +1,15 @@
-Bundle "chrisbra/color_highlight.git"
-Bundle "skwp/vim-colors-solarized"
-" Bundle "itchyny/lightline.vim"
-" Bundle "jby/tmux.vim.git"
-" Bundle "morhetz/gruvbox"
-" Bundle "xsunsmile/showmarks.git"
-" Bundle "chriskempson/base16-vim"
 
-" Required for Gblame in terminal vim
-" Bundle "godlygeek/csapprox.git"
+" Color colornames and codes
+Bundle "chrisbra/color_highlight.git"
+
+" Precision colors for machines and people
+Bundle "skwp/vim-colors-solarized"
+
+" syntax highlighting for tmux
+" Bundle "jby/tmux.vim.git"
+
+" A light and configurable statusline/tabline plugin for Vim
+" Bundle "itchyny/lightline.vim"
+
+" This will cause vim to access the colours in the modified 256 colorspace
+" Bundle "chriskempson/base16-vim"

@@ -10,7 +10,7 @@ set foldmethod=syntax " Enable code folding
 " #############################################################################
 " # Vim JavaScript Syntax
 " #############################################################################
-Bundle "jelera/vim-javascript-syntax"
+" Bundle "jelera/vim-javascript-syntax"
 
 
 " #############################################################################
@@ -22,18 +22,12 @@ let g:jsx_ext_required = 0
 
 
 " #############################################################################
-" # Vim JavaScript Parser
-" #############################################################################
-" Bundle "marijnh/tern_for_vim"
-
-
-" #############################################################################
 " # Vim JavaScript Beautify
 " #############################################################################
 " Config with .editorconfig
-Bundle "maksimr/vim-jsbeautify"
+" Bundle "maksimr/vim-jsbeautify"
 
-map <c-f> :call JsBeautify()<cr>
+" map <c-f> :call JsBeautify()<cr>
 
 
 " #############################################################################
@@ -46,48 +40,21 @@ Bundle "elzr/vim-json"
 " # Vim JS Docummetation
 " #############################################################################
 " Bundle "heavenshell/vim-jsdoc"
-" 
+"
 " nmap <silent> <C-w> <Plug>(jsdoc)
 " let g:jsdoc_allow_input_prompt = 1
 " let g:jsdoc_input_description = 1
 " let g:jsdoc_enable_es6 = 1
 " let g:jsdoc_access_descriptions = 1
 
+
 " #############################################################################
 " # Vim JS Docummetation
 " #############################################################################
 Bundle 'othree/es.next.syntax.vim'
 
-" #############################################################################
-" # Syntastic linter
-" #############################################################################
-Bundle 'scrooloose/syntastic'
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_loc_list_height = 5" height
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-
-let g:syntastic_javascript_checkers = ['eslint', 'jshint']
-let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
-
-let g:syntastic_error_symbol = '❌'
-let g:syntastic_style_error_symbol = '⁉️'
-let g:syntastic_warning_symbol = '⚠️'
-let g:syntastic_style_warning_symbol = '💩'
-
-highlight link SyntasticErrorSign SignColumn
-highlight link SyntasticWarningSign SignColumn
-highlight link SyntasticStyleErrorSign SignColumn
-highlight link SyntasticStyleWarningSign SignColumn
 
 " #############################################################################
 " # Use local eslint
 " #############################################################################
 Bundle 'pmsorhaindo/syntastic-local-eslint.vim'
-

@@ -1,15 +1,27 @@
 " #############################################################################
-" # Tab navigation for Vim
+" # NERDTree Tab navigation for Vim
 " #############################################################################
 Bundle "scrooloose/nerdtree.git"
 let NERDTreeShowHidden = 1
 
 
 " #############################################################################
-" # File opener
+" # NERDTree Git Status
+" #############################################################################
+Bundle "Xuyuanp/nerdtree-git-plugin"
+
+
+" #############################################################################
+" # Fuzzy file finder
 " #############################################################################
 Bundle "ctrlpvim/ctrlp.vim"
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_user_command = 'find %s -type f'
+let g:ctrlp_max_files = 100
+let g:ctrlp_max_depth = 5
+" let g:ctrlp_working_path_mode = 2
+" noremap <silent> <Leader>bb :CtrlPBuffer<Return>" open buffer fuzz  y list"
+

@@ -13,30 +13,20 @@ let g:agp_rg="ag\ --nogroup\ --nocolor\ --column"
 " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
-" ag is fast enough that CtrlP doesn't need to cache
-
 
 " #############################################################################
 " # Searcher info
 " #############################################################################
+" This plugin redefines 6 search commands (/,?,n,N,*,#)
 Bundle "vim-scripts/IndexedSearch"
 
 
 " #############################################################################
-" # Searcher and replace across many files
+" # Searcher and replace
 " #############################################################################
+" search and replace across many files.
 Bundle "skwp/greplace.vim"
 
 set grepprg=ag
 
 let g:grep_cmd_opts = '--line-numbers --noheading'
-
-" #############################################################################
-" # Fuzzy file finder
-" #############################################################################
-" Bundle "ctrlpvim/ctrlp.vim"
-
-" let g:ctrlp_working_path_mode = 2
-" let g:ctrlp_max_files = 600
-" let g:ctrlp_max_depth = 5
-" noremap <silent> <Leader>bb :CtrlPBuffer<Return>" open buffer fuzz  y list"

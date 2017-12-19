@@ -23,22 +23,18 @@ Bundle "gmarik/vundle"
 " This reduces churn and makes it easier to fork. See
 " ~/.vim/vundles/ to edit them:
 
+" runtime css.vundle
+" runtime html.vundle
 runtime appearance.vundle
-runtime css.vundle
+runtime codestyles.vundle
 runtime docker.vundle
 runtime extras.vundle
-runtime codestyles.vundle
-runtime html.vundle
 runtime javascript.vundle
 runtime project.vundle
 runtime search.vundle
+runtime typescript.vundle
 runtime vim-improvements.vundle
 
-" The plugins listed in ~/.vim/.vundles.local will be added here to
-" allow the user to add vim plugins to yadr without the need for a fork.
-if filereadable(expand("~/vim/.vundles.local"))
-  source ~/.vim/.vundles.local
-endif
 
 "Filetype plugin indent on is required by vundle
 filetype plugin indent on

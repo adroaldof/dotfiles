@@ -29,3 +29,4 @@ let NERDTreeShowLineNumbers=1
 " make sure relative line numbers are used
 autocmd FileType nerdtree setlocal relativenumber
 
+let NERDTreeIgnore=['__pycache__', '.vscode']
